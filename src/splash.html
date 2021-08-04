@@ -1,0 +1,863 @@
+ <html>
+	<head>
+		<title>Defiant Mail</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Srisakdi:wght@700&display=swap">
+		<link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+		<style type="text/css">
+		.lovers_quarrel {
+			font-family: 'Lovers Quarrel', cursive;
+		}
+
+		.srisakdi {
+			font-family: 'Srisakdi', cursive;
+		}
+
+		.keania {
+			font-family: 'Keania One', cursive;
+		}
+
+		.plaster {
+			font-family: 'Plaster', cursive;
+		}
+
+		.kenia {
+			font-family: 'Kenia', cursive;
+		}
+
+		.blackops {
+			font-family: 'Black Ops One', cursive;
+		}
+
+		.ui-widget-header {
+			background: rgba(255, 255, 255, 0.0);
+		}
+
+		.ui-effects-wrapper {
+			display: inline;
+		}
+
+		#tabs-0 {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-widget-header {
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #528b6f;
+			-moz-border-radius: 0px;
+			-webkit-border-radius: 0px;
+			border-radius: 0px;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active {
+			background: transparent url('https://s3.amazonaws.com/6degrees.community/img/uiTabsArrow.png') no-repeat bottom center;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default a {
+			color: #ffffff;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active a {
+			color: #528b6f;
+		}
+
+		.absolute-right {
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			-moz-transform: translateX(-100%);
+			-ms-transform: translateX(-100%);
+			-webkit-transform: translateX(-100%);
+			-o-transform: translateX(-100%);
+			transform: translateX(-100%);
+			color: #48D1CC;
+		}
+
+		.container {
+			width: 75px;
+			height: 75px;
+			position: relative;
+			display: flex;
+			margin-left: 25px;
+		}
+
+		.center {
+			width: 180px;
+			height: 60px;
+			position: absolute;
+		}
+
+		.btn {
+			width: 180px;
+			height: 60px;
+			cursor: pointer;
+			background: transparent;
+			border: 1px solid #48D1CC;
+			outline: none;
+			transition: 1s ease-in-out;
+		}
+
+		svg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			fill: none;
+			stroke: #fff;
+			stroke-dasharray: 150 480;
+			stroke-dashoffset: 150;
+			transition: 1s ease-in-out;
+		}
+
+		.btn:hover {
+			transition: 1s ease-in-out;
+			background: #48D1CC;
+		}
+
+		.btn:hover svg {
+			stroke-dashoffset: -480;
+		}
+
+		.btn span {
+			color: white;
+			font-size: 18px;
+			font-weight: 100;
+		}
+
+		html, body{
+			width:100%; 
+			height:100%; 
+			padding:0px; 
+			margin:0px;
+			overflow: hidden;
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(0deg,  #fffff 50%, #283139 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#ffffff), color-stop(100%,#283139)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* IE10+ */
+			background: linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#283139',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			background-attachment: fixed;
+			background-image: url("https://s3.amazonaws.com/toc.6dg.io/double-bubble-dark.png");
+		}
+
+		.gradient1 {
+		    background-color: #5C5C5C;
+		    background: #5C5C5C -webkit-gradient(linear, left top, left bottom, from(#000000), to(#5C5C5C)) no-repeat;
+		    background: #5C5C5C -moz-linear-gradient(top, #000000, #5C5C5C) no-repeat;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#5C5C5C) no-repeat;
+		    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#000000)" no-repeat;
+		}
+
+
+		.shadow {
+			-moz-box-shadow: 0 0 30px 5px #48D1CC;
+			-webkit-box-shadow: 0 0 30px 5px #48D1CC;
+		}
+
+		#projector {
+		  position: absolute; 
+		  top: 0px;
+		  left: 0px;
+		  width:100%;
+		  height:100%;
+		} 
+
+		.center-div {
+			width:580px;
+			height:374px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -290px;
+			margin-top:  -187px;
+		}
+
+		#preloaderDiv
+		{
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -27px;
+			margin-top:  -27px;
+		}
+
+		#logo{
+			opacity:0;
+			filter: alpha(opacity=0);
+		}
+
+		#date2014
+		{
+			position:absolute;
+			padding-left: 210px;
+			padding-top:15px;
+			opacity:0;
+			top:303px;
+			left:0;
+			filter: alpha(opacity=0);
+		}
+		
+		.grid-container {
+			display: grid;
+			grid-template-columns: auto;
+			padding: 10px;
+		}
+		
+		.grid-item {
+			text-align: center;
+		}
+
+		hr.style-eight {
+			overflow: visible; /* For IE */
+			padding: 0;
+			border: none;
+			border-top: medium double #333;
+			color: #333;
+			text-align: center;
+		}
+		hr.style-eight:after {
+			display: inline-block;
+			position: relative;
+			top: -0.7em;
+			font-size: 1.5em;
+			padding: 0 0.25em;
+			background: white;
+		}		
+		</style>
+		<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://s3.amazonaws.com/6degrees.community/notify.js"></script>
+	</head>
+ 	<body class="keania">
+		<canvas id="projector">your browser does not support the Canvas element.</canvas>
+		<script type="text/javascript">
+		var lastvis = "logindiv";
+
+		$(document).ready(function() {
+			$("#logodiv").delay(100).fadeIn(700, function() {
+				$("#logindiv").delay(100).fadeIn(700);
+			});
+
+			$("#signupid").hover(function() {
+				$(this).addClass("shadow");
+			}, function(){
+				$(this).removeClass("shadow");
+			});
+
+			$("#loginid").hover(function() {
+				$(this).addClass("shadow");
+			}, function(){
+				$(this).removeClass("shadow");
+			});
+
+			$("#termsid").hover(function() {
+				$(this).addClass("shadow");
+			}, function(){
+				$(this).removeClass("shadow");
+			});
+
+			$("#resetpassid").hover(function() {
+				$(this).addClass("shadow");
+			}, function(){
+				$(this).removeClass("shadow");
+			});
+
+			$("#signupid").click(function() {
+				if($('#logindiv').is(':visible')) {
+					$('#logindiv').slideUp(function() {
+						$("#signupdiv").slideDown();
+						$("#fname").focus();
+						lastvis = "signupdiv";
+					});
+				}
+
+				if($('#termsdiv').is(':visible')) {
+					$('#termsdiv').slideUp(function() {
+						$("#signupdiv").slideDown();
+						$("#fname").focus();
+						lastvis = "signupdiv";
+					});
+				}
+
+				if ($('#resetpassdiv').is(':visible')) {
+					$('#resetpassdiv').slideUp(function() {
+						$("#signupdiv").slideDown();
+						$("#fname").focus();
+						lastvis = "signupdiv";
+					});
+				}
+			});
+	
+			$("#loginid").click(function() {
+				if ($('#signupdiv').is(':visible')) {
+					$('#signupdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+
+				if ($('#termsdiv').is(':visible')) {
+					$('#termsdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+
+				if ($('#resetpassdiv').is(':visible')) {
+					$('#resetpassdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+			});
+			
+			$("#termsid").click(function() {
+				if ($('#signupdiv').is(':visible')) {
+					$('#signupdiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+
+				if ($('#logindiv').is(':visible')) {
+					$('#logindiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+
+				if ($('#resetpassdiv').is(':visible')) {
+					$('#resetpassdiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+
+			});
+
+			$("#tosspan").click(function() {
+				if ($('#signupdiv').is(':visible')) {
+					$('#signupdiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+
+				if ($('#logindiv').is(':visible')) {
+					$('#logindiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+			});
+
+			$("#agreediv").click(function() {
+				$("#termsdiv").slideUp(function() {
+					$("#" + lastvis).slideDown();
+					if (lastvis == "logindiv") {
+						$("#uname").focus();
+					} else {
+						$("#fname").focus();
+					}
+				});
+			});
+
+			$("#resetpassid").click(function() {
+				$("#logindiv").slideUp(function() {
+					$("#resetpassdiv").slideDown();
+				});
+			});
+
+			$("#resetinfo").click(function() {
+				$("#resetinfo").notify("Your Email Address Is Your Login Name, So We Need That", { position: "top" });
+			});
+
+			$(function() {
+				$("#tabs-0").tabs();
+			});
+
+			$("#signupbtn").click(function() {
+				uname = $("#uname").val();
+				spasswd = $("#spasswd").val();
+				cpasswd = $("#confirmpasswd").val();
+				toschk = $("#toschk").is(":checked");
+
+				if (uname == "") {
+					$("#uname").notify("Missing User Name!", { position: "top"});
+					$("#uname").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#fname").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+					return;
+				}
+
+				if (spasswd == "") {
+					$("#spasswd").notify("Missing Password!", { position: "top"});
+					$("#spasswd").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#spasswd").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (cpasswd == "") {
+					$("#confirmpasswd").notify("Missing Confirmation Password!", { position: "top"});
+					$("#confirmpasswd").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#confirmpasswd").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (spasswd != cpasswd) {
+					$("#spasswd").notify("Passwords Do Not Match!", { position: "top"});
+
+					$("#spasswd").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#spasswd").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					$("#confirmpasswd").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#confirmpasswd").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (toschk == false) {
+					$("#toschk").notify("You Must Accept The Terms Of Service To Proceed!", { position: "top"});
+					$("#toschk").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#toschk").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				signup_record = {
+					"username": uname,
+					"email": email,
+					"passwd": spasswd,
+					"toschk": toschk
+				};
+
+				jsn = JSON.stringify(signup_record)
+
+				$("#signupdiv").slideUp(function() {
+					$("#waitingdiv").slideDown();
+				});
+
+				$.ajax({
+					url: "https://dfft6eav84.execute-api.us-east-1.amazonaws.com/signup",
+					type: "POST",
+					data: jsn,
+					processData: false,
+					contentType: "application/json; charset=UTF-8",
+					success: function(data, status, xhr) {
+						parts = data.body.split(",");
+						if (parts[0] == "success") {
+							window.location = "/verify.html";
+						} else {
+							$("#waitingdiv").slideUp(function() {
+								$("#signupdiv").slideDown(function() {
+									$("#signupbtn").notify(parts[1], {position: "top"});
+								});
+							});
+						}
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#waitingdiv").slideUp(function() {
+							$("#signupdiv").slideDown(function() {
+								$("#signupbtn").notify(errorMessage, {position: "top"});
+							});
+						});
+
+						return;
+					}
+				});
+
+			});
+
+			$("#loginbtn").click(function() {
+				logintype = $("#logintype").val();
+				uname = $("#uname").val();
+				passwd = $("#passwd").val();
+
+				if (uname == "") {
+					$("#uname").notify("Missing Username", { position: "top"});
+					$("#uname").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#uname").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (passwd == "") {
+					$("#passwd").notify("Missing Username/Email", { position: "top"});
+					$("#passwd").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#passwd").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				login_record = {
+					"uname": uname,
+					"passwd": passwd,
+				};
+
+				jsn = JSON.stringify(login_record)
+
+				$.ajax({
+					url: "/login",
+					type: "POST",
+					data: jsn,
+					processData: false,
+					contentType: "application/json; charset=UTF-8",
+					success: function(data, status, xhr) {
+						parts = data.split(",");
+						if (parts[0] == "success") {
+							window.location.href = "/mail";
+							return;
+						} else {
+							$("#logindiv").notify(parts[1], { position: "top"});
+							$("#logindiv").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+								$("#logindiv").removeClass("animate__animated animate__rubberBand").dequeue();
+							});
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#logindiv").notify("Something Went Wrong.  Please Contact Support! " + errorMessage , { position: "top"});
+						$("#logindiv").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+							$("#logindiv").removeClass("animate__animated animate__rubberBand").dequeue();
+						});
+
+						return;
+					}
+				});
+			});
+
+			$("#resetbtn").click(function() {
+				resettype = $("#reset_type").val();
+				resetuname = $("#resetuname").val();
+
+				if (resetuname == "") {
+					$("#resetuname").notify("Missing Username/Email", { position: "top"});
+					$("#resetuname").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#resetuname").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+				}
+
+				if (resettype == "") {
+					$("#reset_type").notify("Missing Username/Email", { position: "top"});
+					$("#reset_type").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#resettype").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+				}
+
+				reset_record = {
+					"email": resetuname,
+					"resettype": resettype,
+				}
+			
+				jsn = JSON.stringify(reset_record);
+
+				$.ajax({
+					url: "https://dfft6eav84.execute-api.us-east-1.amazonaws.com/reset_passwd",
+					type: "POST",
+					data: jsn,
+					processData: false,
+					contentType: "application/json; charset=UTF-8",
+					success: function(data, status, xhr) {
+						parts = data.body.split(",");
+						if (parts[0] == "success") {
+							window.location.href = "https://6degrees.community/";
+							return;
+						} else {
+							$("#resetpassdiv").notify(parts[1], { position: "top"});
+							$("#resetpassdiv").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+								$("#resetpassdiv").removeClass("animate__animated animate__rubberBand").dequeue();
+							});
+						}
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#resetpassdiv").notify("Something Went Wrong.  Please Contact Support! " + errorMessage , { position: "top"});
+						$("#resetpassdiv").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+							$("#resetpassdiv").removeClass("animate__animated animate__rubberBand").dequeue();
+						});
+					}
+				});
+			});
+
+			$("#resettype").change(function() {
+				resettype = $("#resettype").val();
+				if (resettype == "email") {
+					$("#phonetr").slideUp(function() {
+						$("#emailtr").slideDown();
+					});
+				} else {
+					$("#emailtr").slideUp(function() {
+						$("#phonetr").slideDown();
+					});
+				}
+			});
+
+			$("#uname").focus();
+		});
+
+		</script>		
+		<center>
+			<div id="logodiv" name="logodiv" style="display: none;">
+				<!-- <img src="https://s3.amazonaws.com/toc.6dg.io/logo.png" style="width: 400px; height: 250px;" /> -->
+				<h1 style="text-shadow: 2px 2px 3px #48D1CC; color: white;">Defiant Mail</h1>
+				<div id="linksdiv" name="linksdiv" class="absolute-right">
+					<b id="signupid" style="margin-right: 25px; cursor: pointer;">Sign Up</b>
+					<b id="loginid" style="margin-right: 25px; cursor: pointer;">&nbsp;Login</b>
+					<b id="termsid" style="cursor: pointer;">&nbsp;Terms</b>
+				</div>
+			</div>
+			<br/><br/><br/>
+			<div id="signupdiv" name="signupdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; border: 1px solid #48D1CC; width: 375px; height: 550px; z-index: 999; opacity: 1.0;">
+				<br/>
+				<b>Sign Up</b>
+				<hr/><br/>
+				<table style="color: #ffffff; border-collapse: separate; border-spacing: 10px;">
+					<tr>
+						<td><b>username</b></td>
+						<td><input type="text" id="username" name="username" placeholder="User Name" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Password</b></td>
+						<td><input type="password" id="spasswd" name="spasswd" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Confirm Pass</b></td>
+						<td><input type="password" id="confirmpasswd" name="confirmpasswd" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+				</table>
+				<br/>
+				<div>
+					<b>I Agree To The <span id="tosspan" style="color: #48D1CC; cursor: pointer;">Terms Of Service&nbsp;&nbsp;</span></b>
+					<input type="checkbox" id="toschk" name="toschk" style="animation-duration: 2s;" />
+
+				</div>
+				<br/>
+				<div id="signupbtn" class="container" style="margin-left: 85px;">
+					<div class="center">
+						<button class="btn">
+							<svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							</svg>
+							<span>Sign Up</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="logindiv" name="logindiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; border: 1px solid #48D1CC; width: 375px; height: 350px; z-index: 999; opacity: 1.0;">
+				<br/>
+				<b>Login</b>
+				<hr/><br/>
+				<table style="color: #ffffff; border-collapse: separate; border-spacing: 10px;">
+					<tr>
+						<td><b id="logintypelbl">Email</b></td>
+						<td><input type="text" id="uname" name="uname" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Password</b></td>
+						<td><input type="password" id="passwd" name="passwd" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+				</table>
+				<br/>
+				<div id="loginbtn" class="container" style="margin-left: 85px;">
+					<div class="center">
+						<button class="btn">
+							<svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							</svg>
+							<span>Login</span>
+						</button>
+					</div>
+				</div>
+				<br/>
+				<div id="resetpasslnk" name="resetpasslnk" style="color: #48D1CC;">
+					<b id="resetpassid" style="cursor: pointer;">Forgot Username / Password</b>
+				</div>
+				<br/>
+			</div>
+			<div id="termsdiv" name="termsdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; border: 1px solid #528b6f; width: 475px; height: 550px; z-index: 999; opacity: 1.0;">
+				<br/>
+				<b>Terms Of Service</b>
+				<hr/><br/>
+				<div id="tabs-0" style="background: rgba(255,255,255,0.0);">
+					<ul>
+						<li><a href="#tabs-1">Abbreviated ToS</a></li>
+						<li><a href="#tabs-2">Full ToS</a></li>
+					</ul>
+
+					<div id="tabs-1" style="color: #ffffff;">
+						<b>Abbreviated ToS</b>
+						<br/>
+						<div id="abbtos" name="abbtos" style="overflow-y: auto; height: 230px; color: #ffffff; text-align: left;">
+							<ul>
+								<li>No Leftists/SJWs</li>
+									<ul>
+										<li>You have places (twitter, facebook, gmail, etc)</li>
+										<li>This place is ours.  You are <b style="color: #ff0000;">NOT</b> Welcome Here.</li>
+										<li>You will be banned immediately.</li>
+										<li>Sane people are welcome.</li>
+										<ul>
+											<li>Centerists, even left-leaning</li>
+											<li>Conservatives</li>
+											<li>Libertarians, etc</li>
+										</ul>
+									</ul>
+								<li>No Branch Covidians</li>
+									<ul>
+										<li>Not Everyone Can Take The Vaccine</li>
+										<li>Not Everyone <u>Wants</u> The Vaccine</li>
+										<li><u>Fuck You</u> And The #ClotShot</li>
+									</ul>
+								<li>No Hate Speech / Racism</li>
+									<ul>
+										<li>This means the conservative definition</li>
+										<li>Using &quot;offensive&quot; words alone won't get you a ban</li>
+										<li>The intent behind those words can/will</li>
+										<li>We will not tolerate racist groups</li>
+										<ul>
+											<li>BLM - GTFO</li>
+											<li>Antifa - GTFO</li>
+											<li>Nazis - GTFO</li>
+											<li>White Supremacist - GTFO</li>
+										</ul>
+									</ul>
+								<li>No Sexism</li>
+									<ul>
+										<li>Treat Men and Women equally</li>
+										<li>There are only two genders</li>
+										<li>If you think otherwise - GTFO</li>
+										<li>If you are lewd to women on this site</li>
+										<ul>
+											<li>You will be banned.</li>
+											<li>They don't want to hook up with you</li>
+											<li>They don't want to see your junk</li>
+										</ul>
+										<li>If you are a man-hating feminazi - GTFO</li>
+										<ul>
+											<li>Man Bashing is sexism</li>
+											<li>Equal means equal</li>
+										</ul>
+									</ul>
+								<li>No Illegal Porn</li>
+									<ul>
+										<li>You will be banned immediately</li>
+										<li>You will be reported to the FBI</li>
+										<li>You will be publically announced</li>
+										<li>You are <b style="color: #ff0000;">NOT</b> welcome here - GTFO</li>
+									</ul>
+							</ul>
+						</div>
+					</div>
+					<div id="tabs-2" style="color: #ffffff;">
+						<b>Full ToS</b>
+						<br/>
+						<div id="fulltos" name="fulltos" style="overflow-y: auto; height: 230px;">
+							<h1>Terms and conditions</h1>
+							<p>These terms and conditions (&quot;Agreement&quot;) sets forth the general terms and conditions of your use of the <a target="_blank" rel="nofollow" href="https://www.6degrees.community">6degrees.community</a> website (&quot;Website&quot; or &quot;Service&quot;) and any of its related products and services (collectively, &quot;Services&quot;). This Agreement is legally binding between you (&quot;User&quot;, &quot;you&quot; or &quot;your&quot;) and this Website operator (&quot;Operator&quot;, &quot;we&quot;, &quot;us&quot; or &quot;our&quot;). By accessing and using the Website and Services, you acknowledge that you have read, understood, and agree to be bound by the terms of this Agreement. If you are entering into this Agreement on behalf of a business or other legal entity, you represent that you have the authority to bind such entity to this Agreement, in which case the terms &quot;User&quot;, &quot;you&quot; or &quot;your&quot; shall refer to such entity. If you do not have such authority, or if you do not agree with the terms of this Agreement, you must not accept this Agreement and may not access and use the Website and Services. You acknowledge that this Agreement is a contract between you and the Operator, even though it is electronic and is not physically signed by you, and it governs your use of the Website and Services.</p>
+							<h2>Accounts and membership</h2>
+							<p>If you create an account on the Website, you are responsible for maintaining the security of your account and you are fully responsible for all activities that occur under the account and any other actions taken in connection with it. We may monitor and review new accounts before you may sign in and start using the Services. Providing false contact information of any kind may result in the termination of your account. You must immediately notify us of any unauthorized uses of your account or any other breaches of security. We will not be liable for any acts or omissions by you, including any damages of any kind incurred as a result of such acts or omissions. We may suspend, disable, or delete your account (or any part thereof) if we determine that you have violated any provision of this Agreement or that your conduct or content would tend to damage our reputation and goodwill. If we delete your account for the foregoing reasons, you may not re-register for our Services. We may block your email address and Internet protocol address to prevent further registration.</p>
+							<h2>User content</h2>
+							<p>We do not own any data, information or material (collectively, &quot;Content&quot;) that you submit on the Website in the course of using the Service. You shall have sole responsibility for the accuracy, quality, integrity, legality, reliability, appropriateness, and intellectual property ownership or right to use of all submitted Content. We may, but have no obligation to, monitor and review the Content on the Website submitted or created using our Services by you. You grant us permission to access, copy, distribute, store, transmit, reformat, display and perform the Content of your user account solely as required for the purpose of providing the Services to you. Without limiting any of those representations or warranties, we have the right, though not the obligation, to, in our own sole discretion, refuse or remove any Content that, in our reasonable opinion, violates any of our policies or is in any way harmful or objectionable. You also grant us the license to use, reproduce, adapt, modify, publish or distribute the Content created by you or stored in your user account for commercial, marketing or any similar purpose.</p>
+							<h2>Adult content</h2>
+							<p>Please be aware that there may be certain adult or mature content available on the Website. A warning will be shown to the User prior to adult content being displayed. Where there is mature or adult content, individuals who are less than 18 years of age or are not permitted to access such content under the laws of any applicable jurisdiction may not access such content. If we learn that anyone under the age of 18 seeks to conduct a transaction through the Services, we will require verified parental consent, in accordance with the Children's Online Privacy Protection Act of 1998 (&quot;COPPA&quot;). Certain areas of the Website and Services may not be available to children under 18 under any circumstances.</p>
+							<h2>Backups</h2>
+							<p>We perform regular backups of the Website and its Content, however, these backups are for our own administrative purposes only and are in no way guaranteed. You are responsible for maintaining your own backups of your data. We do not provide any sort of compensation for lost or incomplete data in the event that backups do not function properly. We will do our best to ensure complete and accurate backups, but assume no responsibility for this duty.</p>
+							<h2>Links to other resources</h2>
+							<p>Although the Website and Services may link to other resources (such as websites, mobile applications, etc.), we are not, directly or indirectly, implying any approval, association, sponsorship, endorsement, or affiliation with any linked resource, unless specifically stated herein. We are not responsible for examining or evaluating, and we do not warrant the offerings of, any businesses or individuals or the content of their resources. We do not assume any responsibility or liability for the actions, products, services, and content of any other third parties. You should carefully review the legal statements and other conditions of use of any resource which you access through a link on the Website and Services. Your linking to any other off-site resources is at your own risk.</p>
+							<h2>Prohibited uses</h2>
+							<p>In addition to other terms as set forth in the Agreement, you are prohibited from using the Website and Services or Content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal, provincial or state regulations, rules, laws, or local ordinances; (d) to infringe upon or violate our intellectual property rights or the intellectual property rights of others; (e) to harass, abuse, insult, harm, defame, slander, disparage, intimidate, or discriminate based on gender, sexual orientation, religion, ethnicity, race, age, national origin, or disability; (f) to submit false or misleading information; (g) to upload or transmit viruses or any other type of malicious code that will or may be used in any way that will affect the functionality or operation of the Website and Services, third party products and services, or the Internet; (h) to spam, phish, pharm, pretext, spider, crawl, or scrape; (i) for any obscene or immoral purpose; or (j) to interfere with or circumvent the security features of the Website and Services, third party products and services, or the Internet. We reserve the right to terminate your use of the Website and Services for violating any of the prohibited uses.</p>
+							<h2>Intellectual property rights</h2>
+							<p>&quot;Intellectual Property Rights&quot; means all present and future rights conferred by statute, common law or equity in or in relation to any copyright and related rights, trademarks, designs, patents, inventions, goodwill and the right to sue for passing off, rights to inventions, rights to use, and all other intellectual property rights, in each case whether registered or unregistered and including all applications and rights to apply for and be granted, rights to claim priority from, such rights and all similar or equivalent rights or forms of protection and any other results of intellectual activity which subsist or will subsist now or in the future in any part of the world. This Agreement does not transfer to you any intellectual property owned by the Operator or third parties, and all rights, titles, and interests in and to such property will remain (as between the parties) solely with the Operator. All trademarks, service marks, graphics and logos used in connection with the Website and Services, are trademarks or registered trademarks of the Operator or its licensors. Other trademarks, service marks, graphics and logos used in connection with the Website and Services may be the trademarks of other third parties. Your use of the Website and Services grants you no right or license to reproduce or otherwise use any of the Operator or third party trademarks.</p>
+							<h2>Limitation of liability</h2>
+							<p>To the fullest extent permitted by applicable law, in no event will the Operator, its affiliates, directors, officers, employees, agents, suppliers or licensors be liable to any person for any indirect, incidental, special, punitive, cover or consequential damages (including, without limitation, damages for lost profits, revenue, sales, goodwill, use of content, impact on business, business interruption, loss of anticipated savings, loss of business opportunity) however caused, under any theory of liability, including, without limitation, contract, tort, warranty, breach of statutory duty, negligence or otherwise, even if the liable party has been advised as to the possibility of such damages or could have foreseen such damages. To the maximum extent permitted by applicable law, the aggregate liability of the Operator and its affiliates, officers, employees, agents, suppliers and licensors relating to the services will be limited to an amount greater of one dollar or any amounts actually paid in cash by you to the Operator for the prior one month period prior to the first event or occurrence giving rise to such liability. The limitations and exclusions also apply if this remedy does not fully compensate you for any losses or fails of its essential purpose.</p>
+							<h2>Indemnification</h2>
+							<p>You agree to indemnify and hold the Operator and its affiliates, directors, officers, employees, agents, suppliers and licensors harmless from and against any liabilities, losses, damages or costs, including reasonable attorneys' fees, incurred in connection with or arising from any third party allegations, claims, actions, disputes, or demands asserted against any of them as a result of or relating to your Content, your use of the Website and Services or any willful misconduct on your part.</p>
+							<h2>Severability</h2>
+							<p>All rights and restrictions contained in this Agreement may be exercised and shall be applicable and binding only to the extent that they do not violate any applicable laws and are intended to be limited to the extent necessary so that they will not render this Agreement illegal, invalid or unenforceable. If any provision or portion of any provision of this Agreement shall be held to be illegal, invalid or unenforceable by a court of competent jurisdiction, it is the intention of the parties that the remaining provisions or portions thereof shall constitute their agreement with respect to the subject matter hereof, and all such remaining provisions or portions thereof shall remain in full force and effect.</p>
+							<h2>Dispute resolution</h2>
+							<p>The formation, interpretation, and performance of this Agreement and any disputes arising out of it shall be governed by the substantive and procedural laws of Michigan, United States without regard to its rules on conflicts or choice of law and, to the extent applicable, the laws of United States. The exclusive jurisdiction and venue for actions related to the subject matter hereof shall be the courts located in Michigan, United States, and you hereby submit to the personal jurisdiction of such courts. You hereby waive any right to a jury trial in any proceeding arising out of or related to this Agreement. The United Nations Convention on Contracts for the International Sale of Goods does not apply to this Agreement.</p>
+							<h2>Changes and amendments</h2>
+							<p>We reserve the right to modify this Agreement or its terms relating to the Website and Services at any time, effective upon posting of an updated version of this Agreement on the Website. When we do, we will revise the updated date at the bottom of this page. Continued use of the Website and Services after any such changes shall constitute your consent to such changes. Policy was created with <a style="color:inherit" target="_blank" href="https://www.websitepolicies.com/terms-and-conditions-generator">WebsitePolicies</a>.</p>
+							<h2>Acceptance of these terms</h2>
+							<p>You acknowledge that you have read this Agreement and agree to all its terms and conditions. By accessing and using the Website and Services you agree to be bound by this Agreement. If you do not agree to abide by the terms of this Agreement, you are not authorized to access or use the Website and Services.</p>
+							<h2>Contacting us</h2>
+							<p>If you would like to contact us to understand more about this Agreement or wish to contact us concerning any matter relating to it, you may do so via the <a target="_blank" rel="nofollow" href="https://www.6degrees.community/contact">contact form</a> or send an email to &#115;&#117;&#112;p&#111;r&#116;&#64;&#54;de&#103;&#114;&#101;e&#115;&#46;co&#109;m&#117;n&#105;&#116;y</p>
+							<p>This document was last updated on August 22, 2020</p>
+						</div>
+					</div>
+				</div>
+				<br/>
+				<div id="agreediv" class="container" style="margin-left: 120px;">
+					<div class="center">
+						<button class="btn">
+							<svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							</svg>
+							<span>I Agree</span>
+						</button>
+					</div>
+				</div>
+			</div>
+			<div id="resetpassdiv" name="resetpassdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; border: 1px solid #528b6f; width: 375px; height: 350px; z-index: 999; opacity: 1.0;">
+				<br/>
+				<b>Reset Password</b>
+				<hr/><br/>
+				<table style="color: #ffffff; border-collapse: separate; border-spacing: 10px;">
+					<tr>
+						<td><b>Email&nbsp;<span id="resetinfo" class="glyphicon glyphicon-info-sign" style="cursor: pointer;"></span></b></td>
+						<td><input type="text" id="resetuname" name="resetuname" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+				</table>
+				<br/>
+				<div id="resetbtn" class="container" style="margin-left: 85px;">
+					<div class="center">
+						<button class="btn">
+							<svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							</svg>
+							<span>Reset</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="waitingdiv" name="waitingdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; width: 475px; height: 350px; z-index: 999; opacity: 1.0;">
+				<img src="https://s3.amazonaws.com/6degrees.community/waiting.webp" />
+			</div>
+		</center>
+	</body>
+ </html>
+  
+

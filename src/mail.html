@@ -1,0 +1,1099 @@
+ <html>
+	<head>
+		<title>Defiant Mail</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Srisakdi:wght@700&display=swap">
+		<link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+		<style type="text/css">
+		.lovers_quarrel {
+			font-family: 'Lovers Quarrel', cursive;
+		}
+
+		.srisakdi {
+			font-family: 'Srisakdi', cursive;
+		}
+
+		.keania {
+			font-family: 'Keania One', cursive;
+		}
+
+		.plaster {
+			font-family: 'Plaster', cursive;
+		}
+
+		.kenia {
+			font-family: 'Kenia', cursive;
+		}
+
+		.blackops {
+			font-family: 'Black Ops One', cursive;
+		}
+
+		.ui-widget-header {
+			background: rgba(255, 255, 255, 0.0);
+		}
+
+		.ui-effects-wrapper {
+			display: inline;
+		}
+
+		#tabs-0 {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-widget-header {
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #528b6f;
+			-moz-border-radius: 0px;
+			-webkit-border-radius: 0px;
+			border-radius: 0px;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active {
+			background: transparent url('https://s3.amazonaws.com/6degrees.community/img/uiTabsArrow.png') no-repeat bottom center;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default a {
+			color: #ffffff;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active a {
+			color: #528b6f;
+		}
+
+		.absolute-right {
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			-moz-transform: translateX(-100%);
+			-ms-transform: translateX(-100%);
+			-webkit-transform: translateX(-100%);
+			-o-transform: translateX(-100%);
+			transform: translateX(-100%);
+			color: #48D1CC;
+		}
+
+		.absolute-left {
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			-moz-transform: translateX(1%);
+			-ms-transform: translateX(1%);
+			-webkit-transform: translateX(1%);
+			-o-transform: translateX(1%);
+			transform: translateX(1%);
+			color: #48D1CC;
+		}
+
+		.container {
+			width: 75px;
+			height: 75px;
+			position: relative;
+			display: flex;
+			margin-left: 25px;
+		}
+
+		.center {
+			width: 180px;
+			height: 60px;
+			position: absolute;
+		}
+
+		.btn {
+			width: 180px;
+			height: 60px;
+			cursor: pointer;
+			background: transparent;
+			border: 1px solid #48D1CC;
+			outline: none;
+			transition: 1s ease-in-out;
+		}
+
+		svg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			fill: none;
+			stroke: #fff;
+			stroke-dasharray: 150 480;
+			stroke-dashoffset: 150;
+			transition: 1s ease-in-out;
+		}
+
+		.btn:hover {
+			transition: 1s ease-in-out;
+			background: #48D1CC;
+		}
+
+		.btn:hover svg {
+			stroke-dashoffset: -480;
+		}
+
+		.btn span {
+			color: white;
+			font-size: 18px;
+			font-weight: 100;
+		}
+
+		html, body{
+			width:100%; 
+			height:100%; 
+			padding:0px; 
+			margin:0px;
+			overflow: hidden;
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(0deg,  #fffff 50%, #283139 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#ffffff), color-stop(100%,#283139)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* IE10+ */
+			background: linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#283139',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			background-attachment: fixed;
+			background-image: url("https://s3.amazonaws.com/toc.6dg.io/double-bubble-dark.png");
+		}
+
+		.gradient1 {
+		    background-color: #5C5C5C;
+		    background: #5C5C5C -webkit-gradient(linear, left top, left bottom, from(#000000), to(#5C5C5C)) no-repeat;
+		    background: #5C5C5C -moz-linear-gradient(top, #000000, #5C5C5C) no-repeat;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#5C5C5C) no-repeat;
+		    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#000000)" no-repeat;
+		}
+
+
+		.shadow {
+			-moz-box-shadow: 0 0 30px 5px #48D1CC;
+			-webkit-box-shadow: 0 0 30px 5px #48D1CC;
+		}
+
+		#projector {
+		  position: absolute; 
+		  top: 0px;
+		  left: 0px;
+		  width:100%;
+		  height:100%;
+		} 
+
+		.center-div {
+			width:580px;
+			height:374px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -290px;
+			margin-top:  -187px;
+		}
+
+		#preloaderDiv
+		{
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -27px;
+			margin-top:  -27px;
+		}
+
+		#logo{
+			opacity:0;
+			filter: alpha(opacity=0);
+		}
+
+		#date2014
+		{
+			position:absolute;
+			padding-left: 210px;
+			padding-top:15px;
+			opacity:0;
+			top:303px;
+			left:0;
+			filter: alpha(opacity=0);
+		}
+		
+		.grid-container {
+			display: grid;
+			grid-template-columns: auto;
+			padding: 10px;
+		}
+		
+		.grid-item {
+			text-align: center;
+		}
+
+		hr.style-eight {
+			overflow: visible; /* For IE */
+			padding: 0;
+			border: none;
+			border-top: medium double #333;
+			color: #333;
+			text-align: center;
+		}
+		hr.style-eight:after {
+			display: inline-block;
+			position: relative;
+			top: -0.7em;
+			font-size: 1.5em;
+			padding: 0 0.25em;
+			background: white;
+		}		
+		</style>
+		<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://s3.amazonaws.com/6degrees.community/notify.js"></script>
+	</head>
+ 	<body class="keania">
+		<canvas id="projector">your browser does not support the Canvas element.</canvas>
+		<script type="text/javascript">
+		var lastvis = "logindiv";
+
+		var emaillist = [];
+		var folderlist = [];
+
+		$(document).ready(function() {
+			$("#logodiv").delay(100).fadeIn(700, function() {
+				$("#logindiv").delay(100).fadeIn(700);
+				$("#emaildiv").delay(100).fadeIn(700);
+				$("#emaillistdiv").delay(100).fadeIn(700);
+			});
+
+			setInterval(function() {
+				$.ajax({
+					url: "/getmail",
+					type: "POST",
+					data: '',
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 6) == "failed") {
+							parts = data.split(",");
+							if (parts[1] == "no emails") {
+								if ($("#maillistdiv").children().length == 0) {
+									$("#mailcontentdiv").html("No Emails");
+								} else {
+									$("#mailcontentdiv").html($("#maillistdiv").children().length + " Emails");
+								}
+							}
+						} else {
+							obj = JSON.parse(data);
+
+							obj.forEach(v => {
+								flag = false;
+								$("#maillistdiv").children('div').each(function() {
+									if (this.id == v.file) {
+										flag = true;
+									}
+								});
+
+								if (flag) {
+									return;
+								}
+
+								$('#maillistdiv').append(
+									$('<div>').prop({
+										id: v.file, 
+										innerHTML: v.subject + "<br/>" + v.from,
+										style: "border-bottom: 1px solid grey; margin-bottom: 20px; cursor: pointer;"
+									})
+								);
+
+								$('#' + v.file).click(function() {
+									$('#mailcontentdiv').data("file", v.file);
+									if (v.cte == "base64") {
+										bod = atob(v.body);
+										$('#mailcontentdiv').html(bod);
+									} else {
+										$('#mailcontentdiv').html(v.body);
+									}
+
+									$('#maillistdiv').children('div').each(function() {
+										$(this).css({background: ''});
+									});
+
+									$(this).css({background: 'linear-gradient(.25turn, black, 40%, grey)'});
+								});
+
+								emaillist.push(v);
+							});
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			}, 60000);
+		
+			$.ajax({
+				url: "/getmail",
+				type: "POST",
+				data: '',
+				processData: true,
+				contentType: "application/x-www-form-urlencoded;",
+				success: function(data, status, xhr) {
+					if (data.substr(0, 6) == "failed") {
+						parts = data.split(",");
+						if (parts[1] == "no emails") {
+							$("#mailcontentdiv").html("No Emails");
+						}
+					} else {
+						obj = JSON.parse(data);
+						obj.forEach(v => {
+							var foundEmails =[];
+							var emailRegex = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+							var gotcha;
+							searchInThisString = v.from;
+							while (match = emailRegex.exec(searchInThisString)){
+								foundEmails.push(match[0]);
+								searchInThisString= searchInThisString.replace(match[0],"")
+							}
+
+							$('#maillistdiv').append(
+								$('<div>').prop({
+									id: v.file, 
+									innerHTML: v.subject + "<br/><span style='color: #c0c0c0; font-size: 10px;'>" + v.from + "<br/>" + foundEmails[0] + "</span>",
+									style: "border-bottom: 1px solid grey; margin-bottom: 20px; cursor: pointer;"
+								})
+							);
+
+							$('#' + v.file).click(function() {
+								$('#mailcontentdiv').data("file", v.file);
+
+								if (v.cte == "base64") {
+									bod = atob(v.body);
+									$('#mailcontentdiv').html(bod);
+								} else {
+									$('#mailcontentdiv').html(v.body);
+								}
+
+								$('#maillistdiv').children('div').each(function() {
+									$(this).css({background: ''});
+								});
+
+								$(this).css({background: 'linear-gradient(.25turn, black, 40%, grey)'});
+							});
+
+							emaillist.push(v);
+						});
+					}
+
+					return;
+				},
+				error: function(jqXhr, textStatus, errorMessage) {
+					$("#body").notify(errorMessage, {position: "top"});
+					return;
+				}
+			});
+
+
+			// Get Folders
+			$.ajax({
+				url: "/getfolders",
+				type: "POST",
+				data: '',
+				processData: true,
+				contentType: "application/x-www-form-urlencoded;",
+				success: function(data, status, xhr) {
+					if (data.substr(0, 6) == "failed") {
+						parts = data.split(",");
+						if (parts[1] == "no folders") {
+							return;
+						}
+					} else {
+						obj = JSON.parse(data);
+						obj.forEach(v => {
+							folderlist.push(v);
+							$("#movetoselect").append('<option value="' + v + '">' + v + '</option>');
+							$("#folderselection").append('<option value="' + v + '">' + v + '</option>');
+							$("#showspecificselect").append('<option value="' + v + '">' + v + '</option>');
+						});
+					}
+
+					return;
+				},
+				error: function(jqXhr, textStatus, errorMessage) {
+					$("#maindiv").notify(errorMessage, {position: "top"});
+					return;
+				}
+			});
+
+			// Move Email To Folder
+			$("#movetoselect").change(function() {
+				if ($("#mailcontentdiv").data("file") == "" || $("#mailcontentdiv").data("file") == undefined) {
+					$("#mailcontentdiv").notify("No Email Selected To Move", {position: "top"});
+					$("#movetoselect").val("moveto");
+					return
+				}
+
+				$.ajax({
+					url: "/moveemail",
+					type: "POST",
+					data: 'moveto=' + $("#movetoselect :selected").text() + "&file=" + $("#mailcontentdiv").data("file"),
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#maindiv").notify(parts[1], {position: "top"});
+						} else {
+							$("#mailcontentdiv").html('');
+							$("#movetoselect").val("moveto");
+							$("#maillistdiv").children('div').each(function() {
+								if (this.id == $("#mailcontentdiv").data("file")) {
+									$(this).remove();
+								}
+							}); 
+
+							$("#mailcontentdiv").data("file", '');
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			});
+
+
+			$("#deletebutton").click(function() {
+				var settings;
+
+				$.ajax({
+					url: "/getsettings",
+					type: "POST",
+					data: '',
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#maindiv").notify(parts[1], {position: "top"});
+						} else {
+							settings = JSON.parse(data);
+							$.ajax({
+								url: "/deletemail",
+								type: "POST",
+								data: 'username=' + settings.firstname + '&emailid=' + $("#mailcontentdiv").data("file"),
+								processData: true,
+								contentType: "application/x-www-form-urlencoded;",
+								success: function(data, status, xhr) {
+									if (data.substr(0, 5) == "failed") {
+										parts = data.split(",");
+										$("#body").notify(parts[1], {position: "top"});
+									} else {
+										$("#" + $("#mailcontentdiv").data("file")).remove();
+										$("#mailcontentdiv").empty();
+										$("#mailcontentdiv").notify("Deleted Message", {position: "top"});
+										$("#maincontentdiv").data("file", '');
+									}
+
+									return;
+								},
+								error: function(jqXhr, textStatus, errorMessage) {
+									$("#body").notify(errorMessage, {position: "top"});
+									return;
+								}
+							});
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+
+
+			});
+
+			$("#deleteallbutton").click(function() {
+				con = confirm("Delete All Emails?");
+				if (con) {
+					$.ajax({
+						url: "/deleteallmail",
+						type: "POST",
+						data: 'username=username',
+						processData: true,
+						contentType: "application/x-www-form-urlencoded;",
+						success: function(data, status, xhr) {
+							if (data.substr(0, 5) == "failed") {
+								parts = data.split(",");
+								$("#body").notify(parts[1], {position: "top"});
+							} else {
+								$("#maillistdiv").empty();
+								$("#mailcontentdiv").empty();
+								$("#mailcontentdiv").html("No Messages");
+								$("#maincontentdiv").data("file", '');
+							}
+
+							return;
+						},
+						error: function(jqXhr, textStatus, errorMessage) {
+							$("#body").notify(errorMessage, {position: "top"});
+							return;
+						}
+					});
+
+					console.log("Deleting All Emails");
+					return
+				}
+
+				console.log("All Good");
+				return;
+			});
+
+
+			$("#loginid").click(function() {
+				if ($('#signupdiv').is(':visible')) {
+					$('#signupdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+
+				if ($('#termsdiv').is(':visible')) {
+					$('#termsdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+
+				if ($('#resetpassdiv').is(':visible')) {
+					$('#resetpassdiv').slideUp(function() {
+						$("#logindiv").slideDown();
+						$("#uname").focus();
+						lastvis = "logindiv";
+					});
+				}
+			});
+			
+			$("#tosspan").click(function() {
+				if ($('#signupdiv').is(':visible')) {
+					$('#signupdiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+
+				if ($('#logindiv').is(':visible')) {
+					$('#logindiv').slideUp(function() {
+						$("#termsdiv").slideDown();
+					});
+				}
+			});
+
+			$("#newemailbtn").click(function() {
+				$.ajax({
+					url: "/getsettings",
+					type: "POST",
+					data: '',
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#maindiv").notify(parts[1], {position: "top"});
+						} else {
+							settings = JSON.parse(data);
+							$("#fromname").val(settings.lastname + ", " + settings.firstname);
+							$("#fromemail").val(settings.emailaddr);
+							//$("#toemails").focus();
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+
+				$('#sendemaildiv').slideDown();
+			});
+
+			$("#foldersbtn").click(function() {
+				$("#foldersdiv").slideDown();
+			});
+
+			$("#toemails").on('focus', function() {
+				//$("#toemails").notify(", separated list of recipients", {position: "top"});
+			});
+
+			$("#clearbtn").click(function() {
+				$("#fromname").val('');
+				$("#fromemail").val('');
+				$("#toemails").val('');
+				$("#subject").val('');
+				$("#message").val('');
+
+				$("#fromname").focus();
+			});
+
+			$("#cancelbtn").click(function() {
+				$("#sendemaildiv").slideUp();
+			});
+
+			$("#sendbtn").click(function() {
+				fromname = $("#fromname").val();
+				fromemail = $("#fromemail").val();
+				toemails = $("#toemails").val();
+				subject = $("#subject").val();
+				message = $("#message").val();
+
+				if (fromname == "") {
+					$("#sendemaildiv").notify("Missing 'From Name' (yours)", {position: "top"});
+					return;
+				}
+
+				if (fromemail == "") {
+					$("#sendemaildiv").notify("Missing 'From Email' (yours)", {position: "top"});
+					return;
+				}
+
+				if (toemails == "") {
+					$("#sendemaildiv").notify("Missing 'To Email Address'", {position: "top"});
+					return;
+				}
+
+				if (subject == "") {
+					subject = "(None)"
+				}
+
+				$.ajax({
+					url: "/sendmail",
+					type: "POST",
+					data: 'fromname=' + fromname + "&frommail=" + fromemail + "&subject=" + subject + "&tomails=" + toemails + "&body=" + message,
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#body").notify(parts[1], {position: "top"});
+						} else {
+							$("#maindiv").notify("Sent Email!", {position: "top"});
+							$("#clearbtn").trigger("click");
+							$("#cancelbtn").trigger("click");
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			});
+
+			$("#replybutton").click(function() {
+				$("#newemailbtn").trigger("click");
+				msgid = $("#mailcontentdiv").data("file");
+				cnt = -1;
+				for (i = 0; i < emaillist.length; i++) {
+					if (emaillist[i].file == msgid) {
+						cnt = i;	
+					}
+				}
+
+				var foundEmails =[];
+				var emailRegex = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+				var gotcha;
+				searchInThisString = emaillist[cnt].from;
+				while (match = emailRegex.exec(searchInThisString)){
+					foundEmails.push(match[0]);
+					searchInThisString= searchInThisString.replace(match[0],"")
+				}
+
+				$("#toemails").val(foundEmails[0]);
+				$("#subject").val("Re: " + emaillist[cnt].subject);
+				$("#body").focus();
+			});
+
+			$("#replyallbutton").click(function() {
+				$("#newemailbtn").trigger("click");
+				msgid = $("#mailcontentdiv").data("file");
+				cnt = -1;
+				for (i = 0; i < emaillist.length; i++) {
+					if (emaillist[i].file == msgid) {
+						cnt = i;	
+					}
+				}
+
+				var foundEmails =[];
+				var emailRegex = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+				var gotcha;
+				var replist;
+
+				searchInThisString = emaillist[cnt].from;
+				while (match = emailRegex.exec(searchInThisString)){
+					foundEmails.push(match[0]);
+					replist += match[0] + ",";	
+					searchInThisString= searchInThisString.replace(match[0],"")
+				}
+
+				replist = replist.slice(0, -1);
+				$("#toemails").val(replist);
+				$("#subject").val("Re: " + emaillist[cnt].subject);
+				$("#body").focus();
+			});
+
+			$("#logoutid").click(function() {
+				$.ajax({
+					url: "/logout",
+					type: "POST",
+					data: '',
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#body").notify(parts[1], {position: "top"});
+						} else {
+							window.location.href = "/";
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			});
+
+			$("#cancelfolderbtn").click(function() {
+				$("#foldersdiv").slideUp();
+			});
+
+			$("#addfolderbtn").click(function() {
+				foldername = window.prompt("Enter A Folder Name")
+				if (foldername == "" || foldername == null) {
+					return;
+				}
+
+				if (/\s/.test(foldername)) {
+					alert("Folder Name Can Not Have Spaces.  Try _ or . Instead");
+					return;
+				}
+
+				if (foldername.indexOf("/") != -1) {
+					alert("Folder Name Can Not Have /");
+					return;
+				}
+				if (foldername.indexOf(">") != -1 || foldername.indexOf("<") != -1) {
+					alert("Folder Name Can Not Have < Or > Characters");
+					return;
+				}
+				if (foldername.indexOf("|") != -1) {
+					alert("Folder Name Can Not Have | Characters");
+					return;
+				}
+
+				$.ajax({
+					url: "/addfolder",
+					type: "POST",
+					data: 'folder=' + foldername,
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#mailcontentdiv").notify(parts[1], {position: "top"});
+						} else {
+							$("#folderselection").append($('<option>').val(foldername).text(foldername));
+							$("#movetoselect").append('<option value="' + foldername + '">' + foldername + '</option>');
+                                                        $("#showspecificselect").append('<option value="' + v + '">' + v + '</option>');
+
+							folderlist.push(foldername);
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			});
+
+			$("#deletefolderbtn").click(function() {
+				foldername = $("#folderselection :selected").text();
+
+				retval = confirm("Hold Up! This Will Wreck All The Emails In That Folder! Proceed?");
+				if (retval == false) {
+					return;
+				}
+
+				$.ajax({
+					url: "/removefolder",
+					type: "POST",
+					data: 'folder=' + foldername,
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#mailcontentdiv").notify(parts[1], {position: "top"});
+						} else {
+							$("#folderselection").children().each(function() {
+								if ($(this).text() == foldername) {
+									$(this).remove();
+									cnt = -1;
+									for (i = 0; i < folderlist.length; i++) {
+										if (folderlist[i] == foldername) {
+											cnt = i;
+										}
+									}
+
+									if (cnt != -1) {
+										folderlist.splice(cnt, 1);
+									}
+								}
+							});
+
+							$("#movetoselect").children().each(function() {
+								if ($(this).text() == foldername) {
+									$(this).remove();
+									cnt = -1;
+									for (i = 0; i < folderlist.length; i++) {
+										if (folderlist[i] == foldername) {
+											cnt = i;
+										}
+									}
+
+									if (cnt != -1) {
+										folderlist.splice(cnt, 1);
+									}
+								}
+							});
+
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+
+				return;
+			});
+
+			$("#showspecificselect").change(function() {
+				foldertoshow = $("#showspecificselect :selected").text();
+				
+				$.ajax({
+					url: "/showfolder",
+					type: "POST",
+					data: 'folder=' + foldername,
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");
+							$("#mailcontentdiv").notify(parts[1], {position: "top"});
+						} else {
+							$("#maillistdiv").children().each(function() {
+								$(this).remove();
+							});
+
+							obj = JSON.parse(data);
+
+							obj.forEach(v => {
+								$('#maillistdiv').append(
+									$('<div>').prop({
+										id: v.file, 
+										innerHTML: v.subject + "<br/>" + v.from,
+										style: "border-bottom: 1px solid grey; margin-bottom: 20px; cursor: pointer;"
+									})
+								);
+
+								$('#' + v.file).click(function() {
+									$('#mailcontentdiv').data("file", v.file);
+									if (v.cte == "base64") {
+										bod = atob(v.body);
+										$('#mailcontentdiv').html(bod);
+									} else {
+										$('#mailcontentdiv').html(v.body);
+									}
+
+									$('#maillistdiv').children('div').each(function() {
+										$(this).css({background: ''});
+									});
+
+									$(this).css({background: 'linear-gradient(.25turn, black, 40%, grey)'});
+								});
+
+								emaillist.push(v);
+							});
+
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#body").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+			});
+
+			function dragElement(elmnt) {
+				var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+				if (document.getElementById(elmnt.id + "header")) {
+					document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+				} else {
+					elmnt.onmousedown = dragMouseDown;
+				}
+
+				function dragMouseDown(e) {
+					e = e || window.event;
+					e.preventDefault();
+					pos3 = e.clientX;
+					pos4 = e.clientY;
+					document.onmouseup = closeDragElement;
+					document.onmousemove = elementDrag;
+				}
+
+				function elementDrag(e) {
+					e = e || window.event;
+					e.preventDefault();
+					pos1 = pos3 - e.clientX;
+					pos2 = pos4 - e.clientY;
+					pos3 = e.clientX;
+					pos4 = e.clientY;
+					elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+					elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+				}
+
+				function closeDragElement() {
+					document.onmouseup = null;
+					document.onmousemove = null;
+				}
+			}
+
+			dragElement(document.getElementById("sendemaildiv"));
+			dragElement(document.getElementById("foldersdiv"));
+		});
+
+		</script>		
+		<center>
+			<div id="logodiv" name="logodiv" style="display: none;">
+				<h1 style="text-shadow: 2px 2px 3px #48D1CC; color: white;">Defiant Mail</h1>
+				<div id="linksdiv" name="linksdiv" class="absolute-left">
+					<b id="logoutid" style="margin-right: 25px; cursor: pointer;">&nbsp;Logout</b>
+				</div>
+			</div>
+			<br/><br/><br/>
+			<div id="maindiv" name="maindiv" style="width: 100%; height: 100%;">
+				<div id="emaildiv" name="emaildiv" class="gradient1" style="float: right; margin-right: 15px; width: 70%; color: #ffffff; position: relative; display: none; border: 1px solid #48D1CC; height: 800px; z-index: 999; opacity: 1.0;">
+					<br/>
+					<!--
+					<span style="color: #48D1CC;"><b>Move&nbsp;&nbsp;</b></span><select id="movetoselect" style="color: #000000; width: 300px; margin-right: 50px;">
+						<option id="moveto" name="moveto" value="moveto" disabled="true" selected="true">Select Folder To Move To</option>
+					</select>
+					-->
+					<img id="replybutton" name="replybutton" src="https://s3.amazonaws.com/toc.6dg.io/reply.png" style="margin-right: 15px; width: 25px; height: 25px; cursor: pointer;" /> 
+					<img id="replayallbutton" name="replyallbutton" src="https://s3.amazonaws.com/toc.6dg.io/replyall.png" style="margin-right: 15px; width: 25px; height: 25px; cursor: pointer;" /> 
+					<img id="deletebutton" name="deletebutton" src="https://s3.amazonaws.com/toc.6dg.io/trash.png" style="width: 25px; height: 25px; cursor: pointer;" /> 
+
+					<hr/>
+					<div id="mailcontentdiv" name="mailcontentdiv" style="width: 100%; height: 90%; overflow: scroll;">
+					</div>
+				</div>
+				<div id="emaillistdiv" name="emaillistdiv" class="gradient1" style="float: left; margin-left: 35px; color: #ffffff; position: relative; display: none; border: 1px solid #48D1CC; width: 25%; height: 800px; z-index: 999; opacity: 1.0; overflow: scroll;">
+					<br/>
+					<span style="color: #48D1CC;"><b>List</b></span>
+					<!--
+					<select id="showspecificselect" style="color: #000000; width: 300px;">
+						<option id="showinbox" name="showinbox" value="showinbox" selected="true">Inbox</option>
+					</select>
+					-->
+					<br/><br/>
+					<!-- <img id="foldersbtn" name="foldersbtn" src="https://s3.amazonaws.com/toc.6dg.io/folder.png" style="margin-right: 15px; width: 30px; height: 30px; cursor: pointer;" /> -->
+					<img id="newemailbtn" name="newemailbtn" src="https://s3.amazonaws.com/toc.6dg.io/newemail.png" style="margin-right: 15px; width: 25px; height: 23px; cursor: pointer;" /> 
+					<img id="deleteallbutton" name="deleteallbutton" src="https://s3.amazonaws.com/toc.6dg.io/trash.png" style="margin-right: 15px; width: 25px; height: 25px; cursor: pointer;" /> 
+					<hr/><br/>
+					<div id="maillistdiv" name="maillistdiv" style="width: 100%; height: 85%;">
+					</div>
+				</div>
+			</div>
+
+			<div id="sendemaildiv" name="sendemaildiv" class="shadow gradient1" style="width: 400px; height: 725px; border: 1px solid #48D1CC; color: #ffffff; position: absolute; display: none; z-index: 1024; top: 25px; left: 150px;">
+				<center>
+					<div id="sendemaildivheader" style="cursor: move; padding: 10px; background-color: #48D1CC; color: #ffffff;">Click Here To Move</div>
+					<hr>
+					<table style="color: #ffffff;">
+						<tr>
+							<td><b>Name</b></td>
+							<td><input style="color: #000000;" type="text" id="fromname" /></td>
+						</tr>
+						<tr>
+							<td><b>From</b></td>
+							<td><input style="color: #000000;" type="text" id="fromemail" /></td>
+						</tr>
+						<tr>
+							<td><b>To</b></td>
+							<td><input style="color: #000000;" type="text" id="toemails" /></td>
+						</tr>
+						<tr>
+							<td><b>Subject&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></td>
+							<td><input style="color: #000000;" type="text" id="subject" /></td>
+						</tr>
+					</table>
+					<br/>
+					<b>Message</b><br/><br/>
+					<textarea id="message" name="message" style="color: #000000; width: 350px; height: 400px;"></textarea>
+					<br/><br/>
+					<input style="color: #000000;" type="button" id="sendbtn" name="sendbtn" value="Send" />
+					<input style="color: #000000;" type="button" id="clearbtn" name="clearbtn" value="Clear" />
+					<input style="color: #000000;" type="button" id="cancelbtn" name="cancelbtn" value="Cancel" />
+				</center>
+			</div>
+
+			<div id="foldersdiv" name="foldersdiv" class="shadow gradient1" style="width: 400px; height: 725px; border: 1px solid #48D1CC; color: #ffffff; position: absolute; display: none; z-index: 1024; top: 25px; left: 150px;">
+				<center>
+					<div id="foldersdivheader" style="cursor: move; padding: 10px; background-color: #48D1CC; color: #ffffff;">Click Here To Move</div>
+					<hr>
+					<select id="folderselection" size="30" style="width: 350px; color: #000000;">
+					</select>
+					<br/><br/>
+					<input style="color: #000000;" type="button" id="addfolderbtn" name="addfolderbtn" value="Add " />
+					<input style="color: #000000;" type="button" id="deletefolderbtn" name="deletefolderbtn" value="Delete " />
+					<input style="color: #000000;" type="button" id="cancelfolderbtn" name="cancelfolderbtn" value="Cancel" />
+				</center>
+			</div>
+
+			<div id="waitingdiv" name="waitingdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; width: 475px; height: 350px; z-index: 999; opacity: 1.0;">
+				<img src="https://s3.amazonaws.com/6degrees.community/waiting.webp" />
+			</div>
+		</center>
+	</body>
+ </html>
+  
+

@@ -1,0 +1,507 @@
+ <html>
+	<head>
+		<title>Defiant Mail</title>
+		<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Srisakdi:wght@700&display=swap">
+		<link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Keania+One&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Plaster&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+		<style type="text/css">
+		.lovers_quarrel {
+			font-family: 'Lovers Quarrel', cursive;
+		}
+
+		.srisakdi {
+			font-family: 'Srisakdi', cursive;
+		}
+
+		.keania {
+			font-family: 'Keania One', cursive;
+		}
+
+		.plaster {
+			font-family: 'Plaster', cursive;
+		}
+
+		.kenia {
+			font-family: 'Kenia', cursive;
+		}
+
+		.blackops {
+			font-family: 'Black Ops One', cursive;
+		}
+
+		.ui-widget-header {
+			background: rgba(255, 255, 255, 0.0);
+		}
+
+		.ui-effects-wrapper {
+			display: inline;
+		}
+
+		#tabs-0 {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-widget-header {
+			background: transparent;
+			border: none;
+			border-bottom: 1px solid #528b6f;
+			-moz-border-radius: 0px;
+			-webkit-border-radius: 0px;
+			border-radius: 0px;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default {
+			background: transparent;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active {
+			background: transparent url('https://s3.amazonaws.com/6degrees.community/img/uiTabsArrow.png') no-repeat bottom center;
+			border: none;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-default a {
+			color: #ffffff;
+		}
+
+		#tabs-0 .ui-tabs-nav .ui-state-active a {
+			color: #528b6f;
+		}
+
+		.absolute-right {
+			display: inline-block;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			-moz-transform: translateX(-100%);
+			-ms-transform: translateX(-100%);
+			-webkit-transform: translateX(-100%);
+			-o-transform: translateX(-100%);
+			transform: translateX(-100%);
+			color: #48D1CC;
+		}
+
+		.container {
+			width: 75px;
+			height: 75px;
+			position: relative;
+			display: flex;
+			margin-left: 25px;
+		}
+
+		.center {
+			width: 180px;
+			height: 60px;
+			position: absolute;
+		}
+
+		.btn {
+			width: 180px;
+			height: 60px;
+			cursor: pointer;
+			background: transparent;
+			border: 1px solid #48D1CC;
+			outline: none;
+			transition: 1s ease-in-out;
+		}
+
+		svg {
+			position: absolute;
+			left: 0;
+			top: 0;
+			fill: none;
+			stroke: #fff;
+			stroke-dasharray: 150 480;
+			stroke-dashoffset: 150;
+			transition: 1s ease-in-out;
+		}
+
+		.btn:hover {
+			transition: 1s ease-in-out;
+			background: #48D1CC;
+		}
+
+		.btn:hover svg {
+			stroke-dashoffset: -480;
+		}
+
+		.btn span {
+			color: white;
+			font-size: 18px;
+			font-weight: 100;
+		}
+
+		html, body{
+			width:100%; 
+			height:100%; 
+			padding:0px; 
+			margin:0px;
+			overflow: hidden;
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(0deg,  #fffff 50%, #283139 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, right bottom, color-stop(50%,#ffffff), color-stop(100%,#283139)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* IE10+ */
+			background: linear-gradient(0deg,  #ffffff 50%,#283139 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#283139',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			background-attachment: fixed;
+			background-image: url("https://s3.amazonaws.com/toc.6dg.io/double-bubble-dark.png");
+		}
+
+		.gradient1 {
+		    background-color: #5C5C5C;
+		    background: #5C5C5C -webkit-gradient(linear, left top, left bottom, from(#000000), to(#5C5C5C)) no-repeat;
+		    background: #5C5C5C -moz-linear-gradient(top, #000000, #5C5C5C) no-repeat;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#5C5C5C) no-repeat;
+		    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#000000, endColorstr=#000000)" no-repeat;
+		}
+
+
+		.shadow {
+			-moz-box-shadow: 0 0 30px 5px #48D1CC;
+			-webkit-box-shadow: 0 0 30px 5px #48D1CC;
+		}
+
+		#projector {
+		  position: absolute; 
+		  top: 0px;
+		  left: 0px;
+		  width:100%;
+		  height:100%;
+		} 
+
+		.center-div {
+			width:580px;
+			height:374px;
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -290px;
+			margin-top:  -187px;
+		}
+
+		#preloaderDiv
+		{
+			position:absolute;
+			left:50%;
+			top:50%;
+			margin-left: -27px;
+			margin-top:  -27px;
+		}
+
+		#logo{
+			opacity:0;
+			filter: alpha(opacity=0);
+		}
+
+		#date2014
+		{
+			position:absolute;
+			padding-left: 210px;
+			padding-top:15px;
+			opacity:0;
+			top:303px;
+			left:0;
+			filter: alpha(opacity=0);
+		}
+		
+		.grid-container {
+			display: grid;
+			grid-template-columns: auto;
+			padding: 10px;
+		}
+		
+		.grid-item {
+			text-align: center;
+		}
+
+		hr.style-eight {
+			overflow: visible; /* For IE */
+			padding: 0;
+			border: none;
+			border-top: medium double #333;
+			color: #333;
+			text-align: center;
+		}
+		hr.style-eight:after {
+			display: inline-block;
+			position: relative;
+			top: -0.7em;
+			font-size: 1.5em;
+			padding: 0 0.25em;
+			background: white;
+		}		
+		</style>
+		<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/gsap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<script src="https://s3.amazonaws.com/6degrees.community/notify.js"></script>
+	</head>
+ 	<body class="keania">
+		<canvas id="projector">your browser does not support the Canvas element.</canvas>
+		<script type="text/javascript">
+		var lastvis = "logindiv";
+
+		$(document).ready(function() {
+			$("#logodiv").delay(100).fadeIn(700, function() {
+				$("#settingsdiv").delay(100).fadeIn(700);
+			});
+
+			$("#savesettingsbtn").click(function() {
+				fname = $("#fname").val();
+				lname = $("#lname").val();
+				emailaddr = $("#emailaddr").val();
+				sendinbluekey = $("#sendinbluekey").val();
+				awsaccesskey = $("#awsaccesskey").val();
+				awssecretkey = $("#awssecretkey").val();
+				s3bucket = $("#s3bucket").val();
+				passwordprotect = $("#passwordprotect").prop('checked');
+				username = $("#username").val();
+				password = $("#password").val();
+
+				if (fname == "") {
+					$("#fname").notify("Missing First Name", { position: "top"});
+					$("#fname").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#fname").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (lname == "") {
+					$("#lname").notify("Missing Last Name", { position: "top"});
+					$("#lname").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#lname").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (emailaddr == "") {
+					$("#emailaddr").notify("Missing Your Email Address", { position: "top"});
+					$("#emailaddr").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#emailaddr").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (sendinbluekey == "") {
+					$("#sendinbluekey").notify("Missing Send In Blue Key", { position: "top"});
+					$("#sendinbluekey").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#sendinbluekey").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (awsaccesskey == "") {
+					$("#awsaccesskey").notify("Missing AWS Access Key", { position: "top"});
+					$("#awsaccesskey").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#awsaccesskey").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (awssecretkey == "") {
+					$("#awssecretkey").notify("Missing AWS Secret Key", { position: "top"});
+					$("#awssecretkey").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#awssecretkey").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (s3bucket == "") {
+					$("#s3bucket").notify("Missing AWS S3 Bucket", { position: "top"});
+					$("#s3bucket").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#s3bucket").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (s3bucket.substr(0, 5).toLowerCase() == "s3://") {
+					$("#s3bucket").notify("Just The Bucket Name.  No S3:// URL", { position: "top"});
+					$("#s3bucket").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+						$("#s3bucket").removeClass("animate__animated animate__rubberBand").dequeue();
+					});
+
+					return;
+				}
+
+				if (passwordprotect) {
+					if (username == "") {
+						$("#username").notify("Missing Username But Password Protect Is Enabled", { position: "top"});
+						$("#username").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+							$("#username").removeClass("animate__animated animate__rubberBand").dequeue();
+						});
+
+						return;
+					}
+
+					if (password == "") {
+						$("#password").notify("Missing Password But Password Protect Is Enabled", { position: "top"});
+						$("#password").addClass("animate__animated animate__rubberBand").delay(2000).queue(function() {
+							$("#password").removeClass("animate__animated animate__rubberBand").dequeue();
+						});
+
+						return;
+					}
+
+				}
+
+				savestring = "fname=" + fname + "&lname=" + lname + "&emailaddr=" + emailaddr + "&sendinbluekey=" + sendinbluekey + "&awsaccesskey=" + awsaccesskey + "&awssecretkey=" + awssecretkey + "&s3bucket=" + s3bucket + "&passwordprotect=" + passwordprotect + "&username=" + username + "&password=" + password;
+
+				$.ajax({
+					url: "/savesettings",
+					type: "POST",
+					data: savestring, 
+					processData: true,
+					contentType: "application/x-www-form-urlencoded;",
+					success: function(data, status, xhr) {
+						if (data.substr(0, 5) == "failed") {
+							parts = data.split(",");	
+							$("#settingsdiv").notify(parts[1], {position: "top"});
+							return
+						} else {
+							window.location.href = "/mail";
+						}
+
+						return;
+					},
+					error: function(jqXhr, textStatus, errorMessage) {
+						$("#settingsdiv").notify(errorMessage, {position: "top"});
+						return;
+					}
+				});
+
+			});
+
+			$.ajax({
+				url: "/getsettings",
+				type: "POST",
+				data: '',
+				processData: true,
+				contentType: "application/x-www-form-urlencoded;",
+				success: function(data, status, xhr) {
+					if (data.substr(0, 5) == "failed") {
+						parts = data.split(",");
+						$("#maindiv").notify(parts[1], {position: "top"});
+					} else {
+						settings = JSON.parse(data);
+						$("#fname").val(settings.firstname);
+						$("#lname").val(settings.lastname);
+						$("#emailaddr").val(settings.emailaddr);
+						$("#sendinbluekey").val(settings.sendinbluekey);
+						$("#awsaccesskey").val(settings.awsaccesskey);
+						$("#awssecretkey").val(settings.awssecretkey);
+						$("#s3bucket").val(settings.s3bucket);
+					}
+
+					return;
+				},
+				error: function(jqXhr, textStatus, errorMessage) {
+					$("#body").notify(errorMessage, {position: "top"});
+					return;
+				}
+			});
+
+			$("#passwordprotect").change(function() {
+				if (this.checked) {
+					$("#username").prop("disabled", false);
+					$("#password").prop("disabled", false);
+				} else {
+					$("#username").prop("disabled", true);
+					$("#password").prop("disabled", true);
+				}
+			});
+		});
+
+		</script>		
+		<center>
+			<div id="logodiv" name="logodiv" style="display: none;">
+				<!-- <img src="https://s3.amazonaws.com/toc.6dg.io/logo.png" style="width: 400px; height: 250px;" /> -->
+				<h1 style="text-shadow: 2px 2px 3px #48D1CC; color: white;">Defiant Mail</h1>
+			</div>
+			<br/><br/><br/>
+			<div id="settingsdiv" name="settingsdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; border: 1px solid #48D1CC; width: 375px; height: 600px; z-index: 999; opacity: 1.0;">
+				<br/>
+				<b>Settings</b>
+				<hr/><br/>
+				<table style="color: #ffffff; border-collapse: separate; border-spacing: 10px;">
+					<tr>
+						<td><b>First Name</b></td>
+						<td><input type="text" id="fname" name="fname" placeholder="First Name" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Last Name</b></td>
+						<td><input type="text" id="lname" name="lname" placeholder="Last Name" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Email Address</b></td>
+						<td><input type="text" id="emailaddr" name="emailaddr" placeholder="you@you.com" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>SendInBlue Key</b></td>
+						<td><input type="text" id="sendinbluekey" name="sendinbluekey" placeholder="xkeysib-" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>AWS Access Key</b></td>
+						<td><input type="text" id="awsaccesskey" name="awsaccesskey" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>AWS Secret Key</b></td>
+						<td><input type="text" id="awssecretkey" name="awssecretkey" placeholder="" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>S3 Bucket With Emails</b></td>
+						<td><input type="text" id="s3bucket" name="s3bucket" placeholder="Just the name. No s3://" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Password Protect</b></td>
+						<td><input type="checkbox" id="passwordprotect" name="passwordprotect" value="passwordprotect" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Username</b></td>
+						<td><input type="text" id="username" name="username" placeholder="Admin Or Something" disabled="true" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+					<tr>
+						<td><b>Password</b></td>
+						<td><input type="password" id="password" name="password" placeholder="" disabled="true" style="color: #000000; animation-duration: 2s;" /></td>
+					</tr>
+				</table>
+				<br/>
+				<div id="savesettingsbtn" class="container" style="margin-left: 85px;">
+					<div class="center">
+						<button class="btn">
+							<svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+								<polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+							</svg>
+							<span>Save Settings</span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="waitingdiv" name="waitingdiv" class="shadow gradient1" style="color: #ffffff; position: relative; display: none; width: 475px; height: 350px; z-index: 999; opacity: 1.0;">
+				<img src="https://s3.amazonaws.com/6degrees.community/waiting.webp" />
+			</div>
+		</center>
+	</body>
+ </html>
+  
+
